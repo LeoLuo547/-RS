@@ -1,0 +1,25 @@
+1 在CTR点击率预估中，使用GBDT+LR的原理是什么？			
+  通过GBDT将特征进行组合，然后再传给LR。通过GBDT的方式可以有效的提升预测精度。
+
+2 Wide & Deep的模型结构是怎样的，为什么能通过具备记忆和泛化能力（memorization and generalization）			
+  wide&deep 模型一般由线性模型和DNN模型构成，在训练的时候同时优化两个模型的参数；一般记忆
+  性通过wide来实现，如FM，LR；泛化能力通过deep来实现，如DNN。
+
+3 在CTR预估中，使用FM与DNN结合的方式，有哪些结合的方式，代表模型有哪些？			
+  串行和并行。代表有并行的DeepFM;串行的NFM
+
+4 Surprise工具中的baseline算法原理是怎样的？BaselineOnly和KNNBaseline有什么区别？	  
+  Baseline假设用户和商品都具有偏好，并且把这两个因素纳入计算。
+  KNNBaseline在BaselineOnly的基础上加入领域的因素，通过与邻居的相似度完成推荐。	
+	
+5 GBDT和随机森林都是基于树的算法，它们有什么区别？
+  GBDT属于boosting，最终的值是所有树累加的结果；
+  而随机森林属于bagging，最终的值是所有树中的最优结果。
+
+6 基于邻域的协同过滤都有哪些算法，请简述原理			
+  KNNBasic: 通过计算邻居的相似度找到最相似的邻居，然后减去两个人扥公共项，剩下的依照评分
+            由大到小推荐。
+  KNNBaseline: 在Basic的基础上，改进相似度计算的机制，将用户偏好和商品偏好纳入计算。
+  作用：通过选择UserCF给用户推荐和他兴趣相似的其他用户喜欢的物品
+       通过选择ItemCF给用户推荐和他之前喜欢的物品相似的物品 
+  
