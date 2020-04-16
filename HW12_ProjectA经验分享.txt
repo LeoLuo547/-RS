@@ -1,0 +1,4 @@
+经验分享：
+比较粗暴，测试了六种模型： 
+  LR, Lightgbm, xgboost, svc, ngboost, catboost
+发现svc效果最好。
